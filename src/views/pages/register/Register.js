@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import axiosInstance from '../../../maxios/axiosInstance';
+import axiosInstance from '../../../maxios/axiosInstance';
 
 import {
   CButton,
@@ -34,14 +34,14 @@ const Register = () => {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    // axiosInstance.post('/register', formData)
-    //   .then((response) => {
-    //     console.log('Data posted successfully:', response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error('ur account created s', error);
-    //   });
+    e.preventDefault();
+    axiosInstance.post('/register', formData)
+      .then((response) => {
+        console.log('Data posted successfully:', response.data);
+      })
+      .catch((error) => {
+        console.error('ur account created s', error);
+      });
   };
 
   return (

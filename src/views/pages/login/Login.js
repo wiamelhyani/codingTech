@@ -1,69 +1,71 @@
-import { Link, useNavigate } from 'react-router-dom';
+  import { Link, useNavigate } from 'react-router-dom';
 
 
 
 
-import React, { useState } from 'react';
-import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardGroup,
-  CCol,
-  CContainer,
-  CForm,
-  CFormInput,
-  CInputGroup,
-  CInputGroupText,
-  CRow,
-} from '@coreui/react';
-import CIcon from '@coreui/icons-react';
-import { cilLockLocked, cilUser } from '@coreui/icons';
-const Login = () => {
-  const [success, setsuccess] = useState(false);
+  import React, { useState } from 'react';
+  import axiosInstance from '../../../maxios/axiosInstance';
 
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-  const [error, setError] = useState('');
+  import {
+    CButton,
+    CCard,
+    CCardBody,
+    CCardGroup,
+    CCol, 
+    CContainer,
+    CForm,
+    CFormInput,
+    CInputGroup,
+    CInputGroupText,
+    CRow,
+  } from '@coreui/react';
+  import CIcon from '@coreui/icons-react';
+  import { cilLockLocked, cilUser } from '@coreui/icons';
+  const Login = () => {
+    const [success, setsuccess] = useState(false);
 
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
+    const [formData, setFormData] = useState({
+      email: '',
+      password: '',
     });
-    setError('');
-  };
+    const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    // axiosInstance.post('/login', formData)
-    //   .then((response) => {
-        
-    //     console.log('Login successful:');
-    //     console.log(response.data.data.token)
+    const navigate = useNavigate();
 
-    //     setTimeout(() => {
-    //       localStorage.setItem('token', response.data.data.token);
-    //       console.log(response.data.data.token)
-    //       navigate('/dashboard'); 
-    //     }, 2000);
-    //     setsuccess(true)
-        
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error during login:', error);
-    //     setError('Error during login');
-        
-    //   });
-  };
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+      setError('');
+    };
 
-  return (
-    <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      axiosInstance.post('/login', formData)
+        .then((response) => {
+          
+          console.log('Login successful:');
+          console.log(response.data.data.token)
+
+          setTimeout(() => {
+            localStorage.setItem('token', response.data.data.token);
+            console.log(response.data.data.token)
+            navigate('/dashboard'); 
+          }, 2000);
+          setsuccess(true)
+          
+        })
+        .catch((error) => {
+          console.error('Error during login:', error);
+          setError('Error during login');
+          
+        });
+    };
+
+    return (
+      <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
         <CContainer>
           <CRow className="justify-content-center">
             <CCol md={8}>
@@ -137,7 +139,7 @@ const Login = () => {
           </CRow>
         </CContainer>
       </div>
-  );
-};
+    );
+  };
 
-export default Login;
+  export default Login;
