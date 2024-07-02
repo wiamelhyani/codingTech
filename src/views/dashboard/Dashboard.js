@@ -21,37 +21,20 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import {
-  cibCcAmex,
-  cibCcApplePay,
-  cibCcMastercard,
-  cibCcPaypal,
-  cibCcStripe,
-  cibCcVisa,
-  cibGoogle,
-  cibFacebook,
-  cibLinkedin,
-  cifBr,
-  cifEs,
-  cifFr,
-  cifIn,
-  cifPl,
-  cifUs,
-  cibTwitter,
-  cilCloudDownload,
-  cilPeople,
-  cilUser,
-  cilUserFemale,
+
 } from '@coreui/icons'
 
+import { Calendar } from 'rsuite';
+import 'rsuite/dist/rsuite.min.css'; // Import the default styles
 
 
 const Dashboard = () => {
  
 
   return (
-    <>
-      
-    </>
+    <div>
+         <Calendar />
+  </div>
   )
 }
 
