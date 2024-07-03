@@ -10,7 +10,7 @@ import { CBadge, CNavLink, CSidebarNav } from '@coreui/react'
 export const AppSidebarNav = ({ items }) => {
   const navLink = (name, icon, badge, indent = false) => {
     return (
-      <>
+      <> 
         {icon
           ? icon
           : indent && (
