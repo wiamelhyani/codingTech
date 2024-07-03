@@ -33,7 +33,7 @@ const _nav = [
   {
     component: CNavTitle,
     name: 'Recruteur',
-    to:'/Recruteur',
+    to:'/recruteur',
     icon: <CIcon icon={cilUser} customClassName="nav-icon"/>,
   },
   {
