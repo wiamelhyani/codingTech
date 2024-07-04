@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { CSpinner, useColorModes } from '@coreui/react';
 import './scss/style.scss';
 
+
 // import ProtectedRoute from './maxios/proRoute';
 // import CreateJob from './views/base/creatJob/creatJobs';
 
