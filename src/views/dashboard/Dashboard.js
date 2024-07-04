@@ -32,11 +32,14 @@ const Dashboard = () => {
       <div className="container my-4">
         <div className="row">
           <div
-            className="col-md-6 "
+            className="col-md-6 border-0"
             style={{
-              border: "2px solid #000",
+              border: "2px solid ",
               borderRadius: "10px",
-              height: "60vh",
+              backgroundColor: "#e7fafd",
+              textAlign: "center",
+              paddingTop: "20px",
+              fontSize: "15px",
             }}
           >
             <p>
@@ -51,12 +54,13 @@ const Dashboard = () => {
               récentes et les meilleures pratiques du marché.
             </p>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 border-0">
             <Carousel
+              className="border-0"
               style={{
-                border: "2px solid #000",
+                border: "2px solid ",
                 borderRadius: "10px",
-                height: "60vh",
+                backgroundColor: "#e7fafd",
               }}
             >
               <Carousel.Item>
@@ -85,10 +89,12 @@ const Dashboard = () => {
         </div>
       </div>
       <Calendar
+        className="border-0"
         style={{
-          border: "2px solid #000",
+          border: "2px solid ",
           borderRadius: "10px",
           height: "60vh",
+          backgroundColor: "#e7fafd",
         }}
       />
     </div>

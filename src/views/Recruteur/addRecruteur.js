@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function AddRec() {
   return (
@@ -10,7 +10,8 @@ function AddRec() {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-   ajouter recruteur      </button>
+        ajouter recruteur{" "}
+      </button>
 
       {/* Modal structure */}
       <div
@@ -24,7 +25,7 @@ function AddRec() {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
-              ajouter recruteur
+                ajouter recruteur
               </h1>
               <button
                 type="button"
@@ -35,55 +36,29 @@ function AddRec() {
             </div>
             <div className="modal-body">
               <form>
-               
-                <div  className='mb-3'>
-                  <label  >Nom</label>
-                  <input
-                  type='text'
-                  className='form-control'
-
-                  />
-
-                </div>
-                <div className="mb-3">
+                <div className="mb-3 d-flex">
+                  <label>Nom</label>
+                  <input type="text" className="form-control" />
                   <label htmlFor="exampleInputEmail1" className="form-label">
                     Prenom
                   </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                
-                  
-                  />
-                 
-                </div >
-                <div  className='mb-3'>
-                  <label  >Email</label>
-                  <input
-                  type='email'
-                  className='form-control'
-                  aria-describedby="emailHelp"
-                  
-                  />
-
-                </div> <div  className='mb-3'>
-                  <label  >nom de societe</label>
-                  <input
-                  type='text'
-                  className='form-control'
-                  
-                  />
-
+                  <input type="text" className="form-control" />
                 </div>
-                
-                <div  className='mb-3'>
-                  <label  >ssome</label>
+                <div className="mb-3">
+                  <label>Email</label>
                   <input
-                  type='text'
-                  className='form-control'
-                  
+                    type="email"
+                    className="form-control"
+                    aria-describedby="emailHelp"
                   />
-
+                </div>{" "}
+                <div className="mb-3">
+                  <label>nom de societe</label>
+                  <input type="text" className="form-control" />
+                </div>
+                <div className="mb-3">
+                  <label>ssome</label>
+                  <input type="text" className="form-control" />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="exampleInputPassword1" className="form-label">
@@ -101,7 +76,6 @@ function AddRec() {
                     className="form-check-input"
                     id="exampleCheck1"
                   />
-               
                 </div>
                 <button type="submit" className="btn btn-primary">
                   Submit
