@@ -8,3 +8,10 @@
 .sidebar-nav .nav-link.active {
   background: rgb(231 250 253) !important;
 }
+.rounded-div {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+

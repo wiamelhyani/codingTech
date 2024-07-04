@@ -69,10 +69,9 @@ const AppHeader = () => {
         >
           <CIcon
             icon={cilMenu}
-            size="lg"
+            size="xl"
             style={{
               color: "white",
-              fontWeight: "bold",
             }}
           />
         </CHeaderToggler>
@@ -113,20 +112,21 @@ const AppHeader = () => {
           <li className="nav-item py-1">
             <div className="vr h-100 mx-2 text-body text-opacity-75"></div>
           </li>
-          <CDropdown
-            variant="nav-item"
-            placement="bottom-end"
-          >
+          <CDropdown variant="nav-item" placement="bottom-end">
             <CDropdownToggle caret={false}>
               {colorMode === "dark" ? (
-                <CIcon icon={cilMoon} size="lg" />
+                <CIcon icon={cilMoon} size="xl" style={{ color: "yellow" }} />
               ) : colorMode === "auto" ? (
-                <CIcon icon={cilContrast} size="lg" />
+                <CIcon
+                  icon={cilContrast}
+                  size="xl"
+                  style={{ color: "yellow" }}
+                />
               ) : (
-                <CIcon icon={cilSun} size="lg" />
+                <CIcon icon={cilSun} size="xl" style={{ color: "yellow" }} />
               )}
             </CDropdownToggle>
-            <CDropdownMenu>
+            <CDropdownMenu style={{ color: "yellow" }}>
               <CDropdownItem
                 active={colorMode === "light"}
                 className="d-flex align-items-center"

@@ -4,15 +4,20 @@ import { GiTeacher } from "react-icons/gi";
 import { CiSettings } from "react-icons/ci";
 import { cilFolder, cilSpeedometer, cilUser } from "@coreui/icons";
 import { CNavGroup, CNavItem, CNavTitle } from "@coreui/react";
-import { FaChalkboardTeacher, FaFileCode, FaBriefcase } from "react-icons/fa";
-import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
+import {
+  FaChalkboardTeacher,
+  FaFileCode,
+  FaBriefcase,
+  FaUser,
+} from "react-icons/fa";
+import { MdGroups, MdDashboard } from "react-icons/md";
 
 const _nav = [
   {
     component: CNavItem,
     name: "Dashboard",
     to: "/dashboard",
-    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    icon: <MdDashboard icon={cilSpeedometer} customClassName="nav-icon" />,
     // badge: {
     //   color: "info",
     //   // text: 'NEW',
@@ -22,7 +27,7 @@ const _nav = [
     component: CNavTitle,
     name: "Développeur",
     to: "/Dev",
-    icon: <GroupsRoundedIcon className="nav-icon" />,
+    icon: <MdGroups className="nav-icon" />,
   },
   {
     component: CNavTitle,
@@ -51,7 +56,7 @@ const _nav = [
     component: CNavTitle,
     name: "Profile",
     to: "/profile",
-    icon: <CiSettings className="nav-icon" />,
+    icon: <FaUser className="nav-icon" />,
   },
   // {
   //   component: CNavTitle,
