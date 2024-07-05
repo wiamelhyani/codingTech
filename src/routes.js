@@ -4,6 +4,7 @@
   const Dashboard = lazy(() => import('./views/dashboard/Dashboard'));
   const Recruteur =lazy(()=>import('./views/Recruteur/recruteur'));
   const Formation =lazy(()=>import('./views/Formation/Formation'));
+  const Dev =lazy(()=>import('./views/Dev/dev'));
     // const Typography = lazy(() => import('./views/theme/typography/Typography'));
   // const Cards = lazy(() => import('./views/base/cards/Cards'));
   // const ListGroups = lazy(() => import('./views/base/list-groups/ListGroups'));
@@ -18,6 +19,7 @@
     { path: '/dashboard', name: 'Dashboard', element: Dashboard },
     {path:'/recruteur',name:'Recruteur',element:Recruteur},
     {path:'/formation',name:'formation',element:Formation},
+    {path:'/dev',name:'dev',element:Dev},
     // { path: '/theme/typography/:id?', name: 'Typography', element: Typography },
     // { path: '/base/cards/:id', name: 'Cards', element: Cards},
     // { path: '/base/list-groups', name: 'List Groups', element: ListGroups},

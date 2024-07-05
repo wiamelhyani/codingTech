@@ -1,13 +1,17 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 import AddRec from './addRecruteur'
+import { CBadge } from '@coreui/react'
+
 const Recruteur = () => {
  
 
   return (
     
     <>
-        <AddRec/>
+        
+        <CBadge color="success"><AddRec/></CBadge>
+
         <div class="container mt-5 px-2">
     
     <div class="mb-2 d-flex justify-content-between align-items-center">
