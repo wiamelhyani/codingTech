@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import axiosInstance from '../../../maxios/axiosInstance';
+import React, { useState } from "react";
+import axiosInstance from "../../../maxios/axiosInstance";
 
 import {
   CButton,
@@ -12,16 +12,16 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
-} from '@coreui/react';
-import CIcon from '@coreui/icons-react';
-import { cilLockLocked, cilUser } from '@coreui/icons';
+} from "@coreui/react";
+import CIcon from "@coreui/icons-react";
+import { cilLockLocked, cilUser, cilPhone, cilCalendar } from "@coreui/icons";
 
-const Register = () => {
+const Inscription = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
+    nom: "",
+    email: "",
+    motDePasse: "",
+    confirmationMotDePasse: "",
   });
 
   const handleChange = (e) => {
@@ -30,17 +30,17 @@ const Register = () => {
       ...formData,
       [name]: value,
     });
-    
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axiosInstance.post('/register', formData)
+    axiosInstance
+      .post("/inscription", formData)
       .then((response) => {
-        console.log('Data posted successfully:', response.data);
+        console.log("Données envoyées avec succès:", response.data);
       })
       .catch((error) => {
-        console.error('ur account created s', error);
+        console.error("Erreur lors de la création du compte:", error);
       });
   };
 
@@ -52,17 +52,73 @@ const Register = () => {
             <CCard className="mx-4">
               <CCardBody className="p-4">
                 <CForm onSubmit={handleSubmit}>
-                  <h1>Register</h1>
-                  <p className="text-body-secondary">Create your account</p>
+                  <h1>Inscription</h1>
+                  <p className="text-body-secondary">Créez votre compte</p>
+                  <div
+                    style={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <CInputGroup className="mb-3" style={{ flex: "0 0 48%" }}>
+                      <CInputGroupText>
+                        <CIcon icon={cilUser} />
+                      </CInputGroupText>
+                      <CFormInput
+                        name="nom"
+                        placeholder="Nom"
+                        autoComplete="nom"
+                        value={formData.nom}
+                        onChange={handleChange}
+                      />
+                    </CInputGroup>
+                    <CInputGroup className="mb-3" style={{ flex: "0 0 48%" }}>
+                      <CInputGroupText>
+                        <CIcon icon={cilUser} />
+                      </CInputGroupText>
+                      <CFormInput
+                        name="prenom"
+                        placeholder="Prenom"
+                        autoComplete="prenom"
+                        value={formData.prenom}
+                        onChange={handleChange}
+                      />
+                    </CInputGroup>
+                  </div>
+                  <div
+                    style={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <CInputGroup className="mb-3" style={{ flex: "0 0 48%" }}>
+                      <CInputGroupText>
+                        <CIcon icon={cilCalendar} />
+                      </CInputGroupText>
+                      <CFormInput
+                        name="date_naissance"
+                        type="date"
+                        placeholder="Date de naissance"
+                        value={formData.date_naissance}
+                        onChange={handleChange}
+                      />
+                    </CInputGroup>
+                    <CInputGroup className="mb-3" style={{ flex: "0 0 48%" }}>
+                      <CInputGroupText>
+                        <CIcon icon={cilPhone} />
+                      </CInputGroupText>
+                      <CFormInput
+                        name="telephone"
+                        type="numérique"
+                        placeholder="Téléphone "
+                        value={formData.telephone}
+                        onChange={handleChange}
+                      />
+                    </CInputGroup>
+                  </div>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
                     <CFormInput
-                      name="name"
-                      placeholder="name"
-                      autoComplete="name"
-                      value={formData.name}
+                      name="username"
+                      placeholder="Nom d'utilisateur"
+                      autoComplete="username"
+                      value={formData.username}
                       onChange={handleChange}
                     />
                   </CInputGroup>
@@ -84,27 +140,20 @@ const Register = () => {
                     <CFormInput
                       name="password"
                       type="password"
-                      placeholder="Password"
+                      placeholder="Mot de passe"
                       autoComplete="new-password"
-                      value={formData.password}
+                      value={formData.motDePasse}
                       onChange={handleChange}
                     />
                   </CInputGroup>
-                  <CInputGroup className="mb-4">
-                    <CInputGroupText>
-                      <CIcon icon={cilLockLocked} />
-                    </CInputGroupText>
-                    <CFormInput
-                      name="password_confirmation"
-                      type="password"
-                      placeholder="Repeat password"
-                      autoComplete="new-password"
-                      value={formData.password_confirmation}
-                      onChange={handleChange}
-                    />
-                  </CInputGroup>
+
                   <div className="d-grid">
-                    <CButton color="success" type="submit">Create Account</CButton>
+                    <CButton
+                      style={{ backgroundColor: "#2959a7", color: "white" }}
+                      type="submit"
+                    >
+                      Créer un compte
+                    </CButton>
                   </div>
                 </CForm>
               </CCardBody>
@@ -116,4 +165,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Inscription;

@@ -37,10 +37,10 @@ function AddRec() {
             <div className="modal-body">
               <form>
                 <div className="mb-3 d-flex">
-                  <label>Nom</label>
+                  <label>Société</label>
                   <input type="text" className="form-control" />
                   <label htmlFor="exampleInputEmail1" className="form-label">
-                    Prenom
+                    Nom
                   </label>
                   <input type="text" className="form-control" />
                 </div>
@@ -51,9 +51,9 @@ function AddRec() {
                     className="form-control"
                     aria-describedby="emailHelp"
                   />
-                </div>{" "}
+                </div>
                 <div className="mb-3">
-                  <label>nom de societe</label>
+                  <label>Téléphone </label>
                   <input type="text" className="form-control" />
                 </div>
                 <div className="mb-3">

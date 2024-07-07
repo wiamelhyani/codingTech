@@ -29,6 +29,7 @@ const AppSidebar = () => {
       onVisibleChange={(visible) => {
         dispatch({ type: "set", sidebarShow: visible });
       }}
+      style={{ backgroundColor: "rgb(252 252 252)" }}
     >
       <CSidebarHeader className="border-bottom ">
         <CSidebarBrand to="/">
