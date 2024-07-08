@@ -12,10 +12,10 @@ function Profile() {
     }
 
     return (
-        <div>
-            <div className="container-fluid">
-                <div className="row d-flex">
-                    <div className="col-xl-7 col-lg-8 col-md-9 col-11 text-center border border-primary shadow p-3 mb-5 bg-body rounded">
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-lg-6">
+                    <div className="text-center border border-primary shadow p-3 mb-5 bg-body rounded">
                         <h3 className='text-bg-info'>Profile</h3>
                         <div className="card">
                             <form className="form-card" onSubmit={(e) => e.preventDefault()}>
@@ -48,42 +48,27 @@ function Profile() {
                             </form>
                         </div>
                     </div>
-                    <div className='col-xl-7 col-lg-8 col-md-9 col-11 text-center border border-primary shadow p-3 mb-5 bg-body rounded'>
-                    <div className='container-fluid' >
-                        <div className='row d-flex'>
+                </div>
+                <div className="col-lg-6">
+                    <div className="text-center border border-primary shadow p-3 mb-5 bg-body rounded">
                         <h3 className='text-bg-success'>Fixer RDV</h3>
                         <select className="form-select" aria-label="Default select example" onChange={handleVal}>
                             <option value="" selected></option>
                             <option value="0">--------Select</option>
                             <option value="1">RDV</option>
                         </select>
-                        {
-                            select === 1 ? (
-                                <form>
-                                    <input type='date' />
-                                    <input type='time' />
-                                    <button className='submit'>Submit</button>
-                                </form>
-                            ) : null
-                        }
-                            
-                        <div className="card">
-                    
-                        
-                     
+                        {select === 1 && (
+                            <form>
+                                <input type='date' />
+                                <input type='time' />
+                                <button className='submit'>Submit</button>
+                            </form>
+                        )}
                     </div>
-                            
-                        </div> 
-                    
-
-                        </div>
-                    </div>
-                   
-                    
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Profile;
