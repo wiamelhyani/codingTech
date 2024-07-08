@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
 import { CBadge } from '@coreui/react'
 import { GrEdit } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
 import AddDev from './addDev';
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
-import { render } from '@testing-library/react';
 
 
 const Dev  = () =>  {

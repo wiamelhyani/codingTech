@@ -12,6 +12,7 @@ import {
   
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import { FaUser } from 'react-icons/fa';
 
 const _nav = [
   {
@@ -48,6 +49,12 @@ const _nav = [
     name: 'Formateur',
     to:'/Formateur',
     icon: <GiTeacher className='nav-icon'/>,
+  },
+  {
+    component: CNavTitle,
+    name: 'Profile',
+    to:'/profile',
+    icon: <FaUser className='nav-icon'/>,
   },
   {
     component: CNavTitle,
