@@ -2,6 +2,12 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import AddRec from "./addRecruteur";
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
+// =======
+// import React from 'react'
+// import { Navigate } from 'react-router-dom'
+// import AddRec from './addRecruteur'
+// import { CBadge } from '@coreui/react'
+// >>>>>>> f728dc5fabd505ec6b037e719c600c628eb134f1
 
 const Recruteur = () => {
   return (
@@ -17,7 +23,11 @@ const Recruteur = () => {
               class="form-control w-100"
               placeholder="Recherche par nom/email..."
             />
-          </div>
+          
+        
+        {/* <CBadge color="success"><AddRec/></CBadge> */}
+
+    
         </div>
         <div class="table-responsive">
           <table class="table table-responsive">
@@ -70,7 +80,8 @@ const Recruteur = () => {
             </tbody>
           </table>
         </div>
-      </div>
+        </div>
+        </div>
     </>
   );
 };

@@ -42,7 +42,6 @@ const Login = () => {
       .then((response) => {
         console.log("Connexion réussie:");
         console.log(response.data.data.token);
-
         setTimeout(() => {
           localStorage.setItem("token", response.data.data.token);
           console.log(response.data.data.token);

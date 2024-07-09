@@ -25,9 +25,9 @@ const _nav = [
   },
   {
     component: CNavTitle,
-    name: "Développeur",
-    to: "/Dev",
-    icon: <MdGroups className="nav-icon" />,
+    name: 'Dev',
+    to:'/Dev',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
   {
     component: CNavTitle,
