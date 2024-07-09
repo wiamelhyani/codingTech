@@ -3,13 +3,10 @@ import React, { useState } from 'react';
 function Profile() {
     const [select, setSelect] = useState(null);
 
-    function handleVal(e) {
-        if (e.target.value === "1") {
-            setSelect(1);
-        } else {
-            setSelect(null);
-        }
-    }
+   
+  const handleVal = (e) => {
+    setSelect(e.target.value);
+  };
 
     return (
         <div className="container-fluid">
@@ -51,20 +48,53 @@ function Profile() {
                 </div>
                 <div className="col-lg-6">
                     <div className="text-center border border-primary shadow p-3 mb-5 bg-body rounded">
-                        <h3 className='text-bg-success'>Fixer RDV</h3>
+                        <h3 className='text-bg-success'>Fixer Status</h3>
                         <select className="form-select" aria-label="Default select example" onChange={handleVal}>
-                            <option value="" selected></option>
-                            <option value="0">--------Select</option>
-                            <option value="1">RDV</option>
-                        </select>
-                        {select === 1 && (
-                            <form>
-                                <input type='date' />
-                                <input type='time' />
-                                <button className='submit'>Submit</button>
-                            </form>
-                        )}
+          <option value=""  selected>--------Select</option>
+          <option value="1">RDV</option>
+          <option value="2">Pas Interesse</option>
+          <option value="3">Injoingnable</option>
+        </select>
+
+        {select === '1' && (
+          <form>
+            <input type='date' />
+            <input type='time' />
+            <button  class="btn btn-success">Submit</button>    
+            </form>
+        )}
+
+        {select === '2' && (
+            <form>
+                 <select className="form-select" aria-label="Default select example">
+    
+            <option value="0"selected>--------Select------</option>
+            <option value="1">Activite</option>
+            <option value="2">Local</option>
+            <option value="3">Horraire</option>
+            
+          </select>
+          <button  class="btn btn-success">Submit</button>    
+            </form>
+         
+        )}
+           {select === '3' && (
+            <form>
+                  <select className="form-select" aria-label="Default select example">
+            <option value="" selected>--------Select------</option>
+            <option value="1">Injoingnable 1</option>
+            <option value="1">Injoingnable 1</option>
+            <option value="1">Injoingnable 1</option>
+ 
+          </select>
+          <button  class="btn btn-success">Submit</button>    
+          
+
+            </form>
+        
+        )}
                     </div>
+                 
                 </div>
             </div>
         </div>
