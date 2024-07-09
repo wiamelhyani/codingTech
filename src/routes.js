@@ -4,6 +4,8 @@ const Dashboard = lazy(() => import("./views/dashboard/Dashboard"));
 const Recruteur = lazy(() => import("./views/Recruteur/recruteur"));
 const Promotion = lazy(() => import("./views/Promotion/Promotion"));
 const Dev = lazy(() => import("./views/Dev/dev"));
+const Profile = lazy(() => import("./views/Profile/profile"));
+
 const routes = [
   // { path: '/base/offres', name: 'Offres', element: Offres },
   { path: "/", exact: true, name: "Home" },
@@ -11,6 +13,7 @@ const routes = [
   { path: "/recruteur", name: "Recruteur", element: Recruteur },
   { path: "/promotion", name: "promotion", element: Promotion },
   { path: "/dev", name: "dev", element: Dev },
+  { path: "/profile", name: "profile", element: Profile },
   // { path: '/theme/typography/:id?', name: 'Typography', element: Typography },
   // { path: '/base/cards/:id', name: 'Cards', element: Cards},
   // { path: '/base/list-groups', name: 'List Groups', element: ListGroups},
