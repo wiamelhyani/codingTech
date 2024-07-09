@@ -83,8 +83,8 @@ function Profile() {
                   <select className="form-select" aria-label="Default select example">
             <option value="" selected>--------Select------</option>
             <option value="1">Injoingnable 1</option>
-            <option value="1">Injoingnable 1</option>
-            <option value="1">Injoingnable 1</option>
+            <option value="1">Injoingnable 2</option>
+            <option value="1">Injoingnable 3</option>
  
           </select>
           <button  class="btn btn-success">Submit</button>    
