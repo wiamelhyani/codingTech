@@ -77,7 +77,7 @@ const Dev  = () =>  {
          <td><img src="https://i.imgur.com/VKOeFyS.png" width="25"/> Althan Travis</td>
       
          <td><span class="fw-bolder">ana@ana.com</span> <i class="fa fa-ellipsis-h  ms-2"></i></td>
-         <td ><GrEdit color='cyan' size={30}/></td>
+         <td ><GrEdit color='cyan' size={30} /></td>
          <td><MdDelete  color='purple' size={40}  onClick={Bb} /></td>
        </tr>
        
