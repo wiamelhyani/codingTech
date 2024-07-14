@@ -1,6 +1,5 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import React, { useEffect, useRef, useState } from "react";
-import axios from "../../../api/axios";
+import { cilLockLocked, cilUser } from "@coreui/icons";
+import CIcon from "@coreui/icons-react";
 import {
   CButton,
   CCard,
@@ -14,8 +13,9 @@ import {
   CInputGroupText,
   CRow,
 } from "@coreui/react";
-import CIcon from "@coreui/icons-react";
-import { cilLockLocked, cilUser } from "@coreui/icons";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "../../../api/axios";
 
 const Login = () => {
   const [success, setSuccess] = useState(false);
@@ -36,7 +36,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("/rest/auth/login", formData)
+      .post("/rest/auth/loginlogin", formData)
       .then((response) => {
         console.log("Login successful:");
         console.log(response.data.data.token);

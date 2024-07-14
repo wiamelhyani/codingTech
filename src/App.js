@@ -6,12 +6,12 @@ import "./scss/style.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import ProtectedRoute from "./protected-route";
-
+import DefaultLayout from "./layout/DefaultLayout";
 // import ProtectedRoute from './maxios/proRoute';
 // import CreateJob from './views/base/creatJob/creatJobs';
 
 // Containers
-const DefaultLayout = React.lazy(() => import("./layout/DefaultLayout"));
+
 
 // Pages
 const Login = React.lazy(() => import("./views/pages/login/Login"));
@@ -61,15 +61,15 @@ const App = () => {
           <Route path="/register" name="Register Page" element={<Register />} />
           <Route path="/404" name="Page 404" element={<Page404 />} />
           <Route path="/500" name="Page 500" element={<Page500 />} />
-          <Route path="*" name="Home" element={<DefaultLayout />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="*" name="Home" element={<DefaultLayout />} /> */}
+    
           <Route element={<ProtectedRoute />}>
             <Route element={<DefaultLayout />}>
-              <Route path="/recruteur" element={<Recruteur />} />
+              {/* <Route path="/recruteur" element={<Recruteur />} />
               <Route path="/promotion" element={<Promotion />} />
               <Route path="/dev" element={<Dev />} />
-              <Route path="/profile" element={<Profile />} />
-            </Route>
+              <Route path="/profile" element={<Profile />} /> */}
+              <Route path="*" name="Home" element={<DefaultLayout />} />            </Route>
           </Route>
         </Routes>
       </Suspense>
