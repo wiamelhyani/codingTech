@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axiosInstance from "../../../maxios/axiosInstance";
 
 import {
   CButton,
@@ -15,6 +14,7 @@ import {
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { cilLockLocked, cilUser, cilPhone, cilCalendar } from "@coreui/icons";
+import axios from "../../../api/axios";
 
 const Inscription = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ const Inscription = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axiosInstance
+    axios
       .post("/inscription", formData)
       .then((response) => {
         console.log("Données envoyées avec succès:", response.data);

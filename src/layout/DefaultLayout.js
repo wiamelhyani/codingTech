@@ -1,5 +1,6 @@
-import React from 'react'
-import { AppContent, AppSidebar, AppHeader } from '../components/index'
+import React from "react";
+import { AppContent, AppSidebar, AppHeader } from "../components/index";
+import { Outlet } from "react-router-dom";
 
 const DefaultLayout = () => {
   return (
@@ -10,10 +11,9 @@ const DefaultLayout = () => {
         <div className="body flex-grow-1">
           <AppContent />
         </div>
-      
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DefaultLayout
+export default DefaultLayout;

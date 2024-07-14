@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import axiosInstance from "../../../maxios/axiosInstance";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import axios from "../../../api/axios";
 import {
   CButton,
   CCard,
@@ -20,12 +20,11 @@ import { cilLockLocked, cilUser } from "@coreui/icons";
 const Login = () => {
   const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
-    motDePasse: "",
+    email: "",
+    password: "",
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -34,27 +33,25 @@ const Login = () => {
     });
     setError("");
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    axiosInstance
-      .post("/connexion", formData)
+    axios
+      .post("/rest/auth/login", formData)
       .then((response) => {
-        console.log("Connexion réussie:");
+        console.log("Login successful:");
         console.log(response.data.data.token);
         setTimeout(() => {
           localStorage.setItem("token", response.data.data.token);
           console.log(response.data.data.token);
-          navigate("/tableauDeBord");
+          navigate("/dashboard");
         }, 2000);
         setSuccess(true);
       })
       .catch((error) => {
-        console.error("Erreur lors de la connexion:", error);
-        setError("Erreur lors de la connexion");
+        console.error("Error during login:", error);
+        setError("Error during login");
       });
   };
-
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -73,11 +70,10 @@ const Login = () => {
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
                       <CFormInput
-                        name="username"
-                        type="username"
+                        name="email"
+                        type="email"
                         placeholder="Nom d'utilisateur"
-                        autoComplete="username"
-                        value={formData.username}
+                        value={formData.email}
                         onChange={handleChange}
                       />
                     </CInputGroup>
@@ -86,10 +82,10 @@ const Login = () => {
                         <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
                       <CFormInput
-                        name="motDePasse"
+                        name="password"
                         type="password"
                         placeholder="Mot de passe"
-                        value={formData.motDePasse}
+                        value={formData.password}
                         onChange={handleChange}
                       />
                     </CInputGroup>
