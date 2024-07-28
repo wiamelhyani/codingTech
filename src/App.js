@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import ProtectedRoute from "./protected-route";
 import DefaultLayout from "./layout/DefaultLayout";
+import { pdfjs } from 'react-pdf';
 // import ProtectedRoute from './maxios/proRoute';
 // import CreateJob from './views/base/creatJob/creatJobs';
 

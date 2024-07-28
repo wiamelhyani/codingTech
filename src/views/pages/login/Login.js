@@ -18,13 +18,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "../../../api/axios";
 
 const Login = () => {
-  const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -33,25 +33,29 @@ const Login = () => {
     });
     setError("");
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("/rest/auth/loginlogin", formData)
+      .post("/rest/auth/login", formData)
       .then((response) => {
-        console.log("Login successful:");
-        console.log(response.data.data.token);
-        setTimeout(() => {
-          localStorage.setItem("token", response.data.data.token);
-          console.log(response.data.data.token);
+        console.log("Login successful:", response.data);
+
+        // Check the structure of response.data
+        if (response.data && response.data.token) {
+          localStorage.setItem("token", response.data.token);
           navigate("/dashboard");
-        }, 2000);
-        setSuccess(true);
+        } else {
+          console.error("Token not found in response:", response.data);
+          setError("Error during login: Token not found");
+        }
       })
       .catch((error) => {
         console.error("Error during login:", error);
         setError("Error during login");
       });
   };
+
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>

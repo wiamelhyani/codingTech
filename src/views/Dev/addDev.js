@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-function addDev() {
+function AddDev() {
   return (
     <div>
       {/* Button to trigger the modal */}
@@ -10,7 +10,8 @@ function addDev() {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-   ajouter dev     ss </button>
+        Ajouter développeur
+      </button>
 
       {/* Modal structure */}
       <div
@@ -24,7 +25,7 @@ function addDev() {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
-              ajouter Dev
+                Ajouter Dev
               </h1>
               <button
                 type="button"
@@ -34,83 +35,52 @@ function addDev() {
               ></button>
             </div>
             <div className="modal-body">
-              <form className='text-dark-emphasis'>
-              <div  className='mb-3 '>
-                  <label  >Photo</label>
-                  <input
-                  type='file'
-                  className='form-control'
-
-                  />
-
+              <form className="text-dark-emphasis">
+                <div className="mb-3 d-flex align-items-center">
+                  <label className="me-2">Photo</label>
+                  <input type="file" className="form-control" />
                 </div>
-               
-                <div  className='mb-3 '>
-                  <label  >Nom</label>
-                  <input
-                  type='text'
-                  className='form-control'
 
-                  />
-
+                <div className="mb-3 d-flex align-items-center">
+                  <label className="me-2">Nom</label>
+                  <input type="text" className="form-control" />
                 </div>
-                <div className="mb-3">
-                  <label htmlFor="exampleInputEmail1" className="form-label">
+
+                <div className="mb-3 d-flex align-items-center">
+                  <label
+                    htmlFor="exampleInputEmail1"
+                    className="form-label me-2"
+                  >
                     Prenom
                   </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                
-                  
-                  />
-                 
-                </div >
-                <div  className='mb-3'>
-                  <label >username</label>
-                
-                   <input
-                  type='text'
-                  className='form-control'
-          
-                 
-                  />
-
+                  <input type="text" className="form-control" />
                 </div>
-                
-                <div  className='mb-3'>
-                  <label  >Email</label>
-                  <input
-                  type='email'
-                  className='form-control'
-                 
-                  
-                  
-                  />
-                 
 
-                </div> 
-                <div  className='mb-3'>
-                  <label >Tel</label>
-                  <input
-                  type='text'
-                  className='form-control'
-                  
-                  />
-
+                <div className="mb-3 d-flex align-items-center">
+                  <label className="me-2">Username</label>
+                  <input type="text" className="form-control" />
                 </div>
-                <div  className='mb-3'>
-                  <label >dateNaissance</label>
-                  <input
-                  type='text'
-                  className='form-control'
-                  />
 
-                </div>  
-                
-               
-                <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label">
+                <div className="mb-3 d-flex align-items-center">
+                  <label className="me-2">Email</label>
+                  <input type="email" className="form-control" />
+                </div>
+
+                <div className="mb-3 d-flex align-items-center">
+                  <label className="me-2">Tel</label>
+                  <input type="text" className="form-control" />
+                </div>
+
+                <div className="mb-3 d-flex align-items-center">
+                  <label className="me-2">Date Naissance</label>
+                  <input type="text" className="form-control" />
+                </div>
+
+                <div className="mb-3 d-flex align-items-center">
+                  <label
+                    htmlFor="exampleInputPassword1"
+                    className="form-label me-2"
+                  >
                     Password
                   </label>
                   <input
@@ -119,9 +89,7 @@ function addDev() {
                     id="exampleInputPassword1"
                   />
                 </div>
-                
-                
-               
+
                 <button type="submit" className="btn btn-primary">
                   Submit
                 </button>
@@ -143,7 +111,7 @@ function addDev() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default addDev
+export default AddDev;
