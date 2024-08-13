@@ -98,7 +98,7 @@ const Login = () => {
                         <CButton
                           className="px-4 border-0"
                           type="submit"
-                          style={{ backgroundColor: "#d42f43", color: "white" }}
+                          style={{ backgroundColor: "#2959a7", color: "white" }}
                         >
                           Connexion
                         </CButton>
@@ -130,7 +130,7 @@ const Login = () => {
                         className="mt-3 border-0"
                         active
                         tabIndex={-1}
-                        style={{ backgroundColor: "#d42f43", color: "white" }}
+                        style={{ backgroundColor: "#2959a7", color: "white" }}
                       >
                         Inscrivez-vous maintenant !
                       </CButton>

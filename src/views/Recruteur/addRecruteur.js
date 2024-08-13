@@ -10,7 +10,7 @@ function AddRec() {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        Ajouter développeur
+        Ajouter recruteur
       </button>
 
       {/* Modal structure */}

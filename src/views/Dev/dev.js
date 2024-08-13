@@ -6,55 +6,92 @@ import AddDev from "./addDev";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import axios from "../../api/axios";
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 
 const Dev = () => {
   const [developers, setDevelopers] = useState([]);
+  const [selectedDeveloper, setSelectedDeveloper] = useState(null);
+  const [isAddDevModalOpen, setIsAddDevModalOpen] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
-    const fetchDevelopers = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        console.error("No token found");
-        return;
-      }
-      try {
-        const response = await axios.get("/developers", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+    axios
+      .get("/developers")
+      .then((response) => {
         setDevelopers(response.data);
-      } catch (error) {
+        console.log("data", response.data);
+      })
+      .catch((error) => {
         console.error("Error fetching developers:", error);
-      }
-    };
-
-    fetchDevelopers();
+      });
   }, []);
 
-  function Bb() {
+  const handleDelete = (id) => {
     confirmAlert({
-      title: "Confirm to submit",
-      message: "Are you sure to do this.",
+      title: "Confirmer la soumission",
+      message: "Êtes-vous sûr de vouloir faire cela ?",
       buttons: [
         {
-          label: "Yes",
-          onClick: () => alert("Click Yes"),
+          label: "Oui",
+          onClick: () => {
+            axios
+              .delete(`/developers/${id}`)
+              .then((response) => {
+                setDevelopers(developers.filter((dev) => dev.id !== id));
+                console.log("Supprimé avec succès");
+              })
+              .catch((error) => {
+                console.error(
+                  "Erreur lors de la suppression du développeur :",
+                  error
+                );
+              });
+          },
         },
         {
-          label: "No",
-          onClick: () => alert("Click No"),
+          label: "Non",
+          onClick: () => alert("Cliquez sur Non"),
         },
       ],
     });
-  }
+  };
+
+  const handleEdit = (developer) => {
+    setSelectedDeveloper(developer);
+    setIsAddDevModalOpen(true);
+  };
+
+  const handleAddDevClose = () => {
+    setSelectedDeveloper(null);
+    setIsAddDevModalOpen(false);
+  };
+
+  const handleViewProfile = (developer) => {
+    navigate("/profile", { state: { developer } }); // Navigate to Profile with developer data
+  };
 
   return (
     <div>
       <div>
-        <CBadge color="success">
-          <AddDev />
+        <CBadge
+          color="success"
+          onClick={() => setIsAddDevModalOpen(true)}
+          style={{
+            padding: "10px 20px",
+            width: "250px",
+            textAlign: "center",
+            fontSize: "20px",
+          }}
+        >
+          Ajouter Développeur
         </CBadge>
+        {isAddDevModalOpen && (
+          <AddDev
+            developer={selectedDeveloper}
+            onClose={handleAddDevClose}
+            setDevelopers={setDevelopers}
+          />
+        )}
         <div className="container mt-5 px-2">
           <div className="mb-2 d-flex justify-content-between align-items-center">
             <div className="position-relative">
@@ -66,7 +103,6 @@ const Dev = () => {
                 placeholder="Search by order#, name..."
               />
             </div>
-
             <div className="px-2">
               <span>
                 Filters <i className="fa fa-angle-down"></i>
@@ -85,16 +121,22 @@ const Dev = () => {
                     Nom
                   </th>
                   <th scope="col" width="20%">
-                    Prenom
+                    Description
                   </th>
                   <th scope="col" width="20%">
                     Email
+                  </th>
+                  <th scope="col" width="20%">
+                    Telephone
                   </th>
                   <th scope="col" width="20%">
                     Editer
                   </th>
                   <th scope="col" width="20%">
                     Supprimer
+                  </th>
+                  <th scope="col" width="20%">
+                    Voir Profil
                   </th>
                 </tr>
               </thead>
@@ -103,22 +145,44 @@ const Dev = () => {
                   <tr key={dev.id}>
                     <td>
                       <img
-                        src={dev.imageURL}
+                        src="https://tse2.mm.bing.net/th?id=OIP.Gfp0lwE6h7139625a-r3aAHaHa&pid=Api&P=0&h=180"
                         width="30"
-                        alt={`${dev.nom} ${dev.prenom}`}
+                        alt="img"
                       />
                     </td>
-                    <td>{dev.nom}</td>
-                    <td>{dev.prenom}</td>
+                    <td>
+                      {dev.nom} {dev.prenom}
+                    </td>
+                    <td>{dev.description}</td>
                     <td>
                       <span className="fw-bolder">{dev.email}</span>
                       <i className="fa fa-ellipsis-h ms-2"></i>
                     </td>
                     <td>
-                      <GrEdit color="cyan" size={30} />
+                      <span className="fw-bolder">{dev.telephone}</span>
+                      <i className="fa fa-ellipsis-h ms-2"></i>
                     </td>
                     <td>
-                      <MdDelete color="purple" size={40} onClick={Bb} />
+                      <GrEdit
+                        color="cyan"
+                        size={30}
+                        onClick={() => handleEdit(dev)}
+                      />
+                    </td>
+                    <td>
+                      <MdDelete
+                        color="purple"
+                        size={40}
+                        onClick={() => handleDelete(dev.id)}
+                      />
+                    </td>
+                    <td>
+                      <button
+                        className="btn btn-info"
+                        onClick={() => handleViewProfile(dev)}
+                      >
+                        Voir
+                      </button>
                     </td>
                   </tr>
                 ))}
